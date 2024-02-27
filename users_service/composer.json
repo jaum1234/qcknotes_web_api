@@ -1,0 +1,23 @@
+{
+    "name": "joaocoura/users_service",
+    "description": "User service for my microservices application",
+    "autoload": {
+        "psr-4": {
+            "Joaocoura\\UsersService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "joao coura",
+            "email": "joaovitorsouzacoura@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dotenv": "7.0.4",
+        "doctrine/orm": "3.0.1",
+        "doctrine/dbal": "4.0.0",
+        "symfony/cache": "7.0.4",
+        "symfony/routing": "7.0.3",
+        "symfony/http-foundation": "7.0.4"
+    }
+}
