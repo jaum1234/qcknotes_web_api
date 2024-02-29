@@ -1,14 +1,23 @@
 <?php
 
-use JoaoCoura\UserService\services\routing\Route;
+use Joaocoura\UsersService\services\routing\Route;
 use Symfony\Component\Routing\RouteCollection;
+use Joaocoura\UsersService\controllers\UserController;
 
 $routes = new RouteCollection;
-$routes->addNamePrefix("/api/v1/users");
 
-$userStore  = Route::post("", UserController::class, "index");
-$userShow   = Route::get("/{id}", UserController::class, "store");
+$userStore  = Route::post("", UserController::class, "store");
+$userShow   = Route::get("/{id}", UserController::class, "show");
 $userUpdate = Route::put("/{id}", UserController::class, "update");
 $userDelete = Route::delete("/{id}", UserController::class, "delete");
 
-$routes->add("user_list", $userList);
+var_dump($userStore);
+
+$routes->add("user_show", $userShow);
+$routes->add("user_store", $userStore);
+$routes->add("user_update", $userUpdate);
+$routes->add("user_delete", $userDelete);
+
+$routes->addPrefix("/api/v1/users");
+
+return $routes;
