@@ -11,8 +11,6 @@ $userShow   = Route::get("/{id}", UserController::class, "show");
 $userUpdate = Route::put("/{id}", UserController::class, "update");
 $userDelete = Route::delete("/{id}", UserController::class, "delete");
 
-var_dump($userStore);
-
 $routes->add("user_show", $userShow);
 $routes->add("user_store", $userStore);
 $routes->add("user_update", $userUpdate);
