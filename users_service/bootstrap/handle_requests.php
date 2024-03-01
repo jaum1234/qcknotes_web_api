@@ -12,9 +12,13 @@ $context = new RequestContext();
 $context->fromRequest($request);
 
 $path = $context->getPathInfo();
+$method = $context->getMethod();
 
 $matcher = new UrlMatcher($routes, $context);
 $match = $matcher->match($path);
 
 $controller = $container->get($match["_controller"]);
-$action = $match["_action"];
+$action = $match["_actions"];
+
+if (is_array($action)) $action = $action[$method];
+

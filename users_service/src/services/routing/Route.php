@@ -5,7 +5,12 @@ namespace Joaocoura\UsersService\services\routing;
 use Symfony\Component\Routing\Route as RoutingRoute;
 
 class Route {
-   
+
+    public static function many(string $url, string $controller, array $actions, $methods) {    
+        $actions = array_combine($methods, $actions);
+        return self::create($url, $controller, $actions, $methods);
+    }
+    
     public static function get(string $url, string $controller, string $action): RoutingRoute {
         return self::create($url, $controller, $action, ["GET"]);
     }
@@ -22,10 +27,10 @@ class Route {
         return self::create($url, $controller, $action, ["DELETE"]);
     }
 
-    private static function create(string $url, string $controller, string $action, array $methods): RoutingRoute {
+    private static function create(string $url, string $controller, string | array $actions, array $methods): RoutingRoute {
         return new RoutingRoute($url, [
             "_controller" => $controller,
-            "_action" => $action
+            "_actions" => $actions
         ], methods: $methods);
     }
 }

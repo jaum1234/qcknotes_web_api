@@ -7,14 +7,10 @@ use Joaocoura\UsersService\controllers\UserController;
 $routes = new RouteCollection;
 
 $userStore  = Route::post("", UserController::class, "store");
-$userShow   = Route::get("/{id}", UserController::class, "show");
-$userUpdate = Route::put("/{id}", UserController::class, "update");
-$userDelete = Route::delete("/{id}", UserController::class, "delete");
+$userShowUpdateDelete = Route::many("/{id}", UserController::class, ["show" , "update", "destroy"], ["GET", "PUT", "DELETE"]);
 
-$routes->add("user_show", $userShow);
 $routes->add("user_store", $userStore);
-$routes->add("user_update", $userUpdate);
-$routes->add("user_delete", $userDelete);
+$routes->add("user_show_update_delete", $userShowUpdateDelete);
 
 $routes->addPrefix("/api/v1/users");
 
