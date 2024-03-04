@@ -1,8 +1,8 @@
 <?php
 
-use Joaocoura\UsersService\services\routing\Route;
+use Joaocoura\UsersService\Services\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
-use Joaocoura\UsersService\controllers\UserController;
+use Joaocoura\UsersService\Controllers\UserController;
 
 $routes = new RouteCollection;
 

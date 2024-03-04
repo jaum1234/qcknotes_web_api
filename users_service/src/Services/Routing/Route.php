@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaocoura\UsersService\services\routing;
+namespace Joaocoura\UsersService\Services\Routing;
 
 use Symfony\Component\Routing\Route as RoutingRoute;
 
