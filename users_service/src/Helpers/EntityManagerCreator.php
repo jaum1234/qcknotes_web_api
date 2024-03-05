@@ -4,10 +4,11 @@ namespace Joaocoura\Helpers;
 
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\ORMSetup;
 
 class EntityManagerCreator {
-    public function getEntityManager($params) {
+    public function getEntityManager($params): EntityManagerInterface {
         $config = ORMSetup::createAttributeMetadataConfiguration(
             paths: [__DIR__ . "/../Models"],
             isDevMode: true
