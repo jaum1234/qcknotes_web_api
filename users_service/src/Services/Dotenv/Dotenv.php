@@ -2,12 +2,12 @@
 
 namespace Joaocoura\UsersService\Services\Dotenv;
 
-use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Dotenv as SymDotenv;
 
-class DotenvService {
+class Dotenv {
 
     public function __construct(
-        private Dotenv $service
+        private SymDotenv $service
     ) {}
 
     public function load($path) {

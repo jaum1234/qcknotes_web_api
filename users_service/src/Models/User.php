@@ -1,12 +1,15 @@
 <?php
 
-namespace Joaocoura\Models;
+namespace Joaocoura\UserService\Models;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Table;
 
+#[Entity]
+#[Table(name: "users")]
 class User {
 
     #[Id]

@@ -1,6 +1,6 @@
 <?php
 
-use Joaocoura\Helpers\EntityManagerCreator;
+use Joaocoura\UsersService\Helpers\EntityManagerCreator;
 
 $dbconfig = require_once __DIR__ . "/../config/database.php";
 
