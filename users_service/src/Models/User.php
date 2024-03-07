@@ -1,6 +1,6 @@
 <?php
 
-namespace Joaocoura\UserService\Models;
+namespace Joaocoura\UsersService\Models;
 
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -15,11 +15,16 @@ class User {
     #[Id]
     #[Column(type: "integer")]
     #[GeneratedValue()]
-    private string $id;
+    private int $id;
 
     #[Column(type: "string", unique: true)]
     private string $email;
     
     #[Column(type: "string")]
     private string $password;
+
+    public function __construct(string $email, string $password) {
+        $this->email = $email;
+        $this->password = $password;
+    }
 }

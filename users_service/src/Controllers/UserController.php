@@ -2,11 +2,12 @@
 
 namespace Joaocoura\UsersService\Controllers;
 
-use Joaocoura\UserService\Models\User;
+use Joaocoura\UsersService\Models\User;
 use Joaocoura\UsersService\Services\Dotenv\Dotenv;
 use Joaocoura\UsersService\Services\Repositories\Repository;
+use Joaocoura\UsersService\Services\RequestService;
+use Joaocoura\UsersService\Services\ResponseService;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class UserController {
     public function __construct(
@@ -16,9 +17,18 @@ class UserController {
         $this->userRepository->get(User::class);
     }
 
-    public function store(Request $request, Response $response) {
+    public function store(Request $request, ResponseService $response) {
+        $body = $request->toArray();
 
+        $email = $body["email"];
+        $password = $body["password"];
+
+        $user = new User($email, $password);
+        $this->userRepository->save($user);
+
+        return $response->json($user);
     }
+
     public function show() {
     }
     public function update() {}

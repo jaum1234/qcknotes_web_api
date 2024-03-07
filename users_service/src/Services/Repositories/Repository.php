@@ -20,7 +20,7 @@ class Repository {
         return $this->repository->findAll();
     }
 
-    public function fetchBy(array $criteria, array | null $order, int | null $limit, int | null $offset) {
+    public function fetchBy(array $criteria, array | null $order = null, int | null $limit = null, int | null $offset = null) {
         $this->checkEntity();
 
         $this->repository->findBy($criteria, $order, $limit, $offset);
